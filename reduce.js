@@ -88,7 +88,7 @@ const concatenateWords = function (words) {
   return words.reduce(add, "");
 }
 
-// ------------------------------concatenateWords------------------------------
+// ---------------------------------longestWord---------------------------------
 
 const longWord = function (word1, word2) {
   return word1.length >= word2.length ? word1 : word2;
@@ -98,8 +98,15 @@ const longestWord = function (words) {
   return words.reduce(longWord, "");
 };
 
-// shortestWord(["apple", "banana", "cherry", "kiwi"]) => "kiwi"
-const shortestWord = function (words) { }
+// --------------------------------shortestWord--------------------------------
+
+const shortWord = function (word1, word2) {
+  return word1.length <= word2.length ? word1 : word2;
+};
+
+const shortestWord = function (words) {
+  return words.reduce(shortWord);
+}
 
 // joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
 const joinWithComma = function (words) { }
