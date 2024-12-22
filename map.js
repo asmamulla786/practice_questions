@@ -60,8 +60,21 @@ const reversedStringsOf = function (strings) {
   return strings.map(reversedStringOf);
 };
 
-// double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
-const doubleLettersOf = function (strings) { };
+// ----------------------DoubleLetters Of Array Of Strings----------------------
+
+const doubleCharacter = function (character) {
+  return character + character;
+};
+
+const doubleChararectersOf = function (string) {
+  const characters = Array.from(string);
+
+  return characters.map(doubleCharacter).join("");
+};
+
+const doubleLettersOf = function (strings) {
+  return strings.map(doubleChararectersOf);
+};
 
 // boolean negation of [true, false, true] => [false, true, false]
 const negatedBooleansOf = function (booleans) { };
@@ -481,6 +494,11 @@ function testReversedStringsOf() {
   printMessage(reversedStringsOf([""]), [""], areEqual1D);
 }
 
+function testDoubleLettersOf() {
+  printMessage(doubleLettersOf([" "]), ["  "], areEqual1D);
+  printMessage(doubleLettersOf(["cat", "dog"]), ["ccaatt", "ddoogg"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -488,6 +506,7 @@ function testAll() {
   testFirstCharactersOf();
   testTruthValuesOf();
   testReversedStringsOf();
+  testDoubleLettersOf();
 }
 
 testAll();
