@@ -282,8 +282,18 @@ const flattenedArraysOf = function (arrays) {
   return arrays.map(flatArray);
 };
 
+// ---------------------SortedLettersOf Of Array Of Strings---------------------
+
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
-const sortedLettersOf = function (strings) { };
+const sortedLetters = function (string) {
+  const characters = Array.from(string);
+
+  return characters.sort().join("");
+}
+
+const sortedLettersOf = function (strings) {
+  return strings.map(sortedLetters);
+};
 
 // wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrappedStringsOf = function (strings) { };
@@ -721,6 +731,11 @@ function testWordLengthsOf() {
 function testFlattenedArraysOf() {
   printMessage(flattenedArraysOf([[1, [2, 3]], [1, 2]]), [[1, 2, 3], [1, 2]], areEqual2D);
 }
+
+function testSortedLettersOf() {
+  printMessage(sortedLettersOf(["cat", "bat", "rat"]), ["act", "abt", "art"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -745,6 +760,7 @@ function testAll() {
   testCapitalizedFirstLettersOf();
   testWordLengthsOf();
   testFlattenedArraysOf();
+  testSortedLettersOf();
 }
 
 testAll();
