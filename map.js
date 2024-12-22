@@ -8,8 +8,15 @@ const squaresOf = function (numbers) {
   return numbers.map(squareOf);
 };
 
-// lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
-const lengthsOf = function (strings) { };
+// -------------------------Lengths Of Array Of Strings-------------------------
+
+const lengthOf = function (string) {
+  return string.length;
+}
+
+const lengthsOf = function (strings) {
+  return strings.map(lengthOf);
+};
 
 // uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
 const uppercaseOf = function (strings) { };
@@ -419,8 +426,13 @@ function testSquaresOf() {
   printMessage(squaresOf([1, 2, 3]), [1, 4, 9], areEqual1D);
 }
 
+function testLengthsOf() {
+  printMessage(lengthsOf(["o"]), [1], areEqual1D);
+  printMessage(lengthsOf(["one", "two"]), [3, 3], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
+  testLengthsOf();
 }
 
 testAll();
