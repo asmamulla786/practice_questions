@@ -168,24 +168,45 @@ const reversedArraysOf = function (arrays) {
 // ----------------------WithoutVowels Of Array Of Strings----------------------
 
 const isNotVowel = function (character) {
-  return "aeiouAEIOU".includes(character) ? "" : character;
+  return !"aeiouAEIOU".includes(character);
 };
 
 const withoutVowels = function (string) {
   const characters = Array.from(string);
-  return characters.map(isNotVowel).join("");
+  return characters.filter(isNotVowel).join("");
 };
 
 const withoutVowelsOf = function (strings) {
   return strings.map(withoutVowels);
 };
 
-// cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
-// Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
-const cumulativeSumsOf = function (arrays) { };
+// ---------------------CumulativeSums Of Array Of Strings---------------------
 
-// reverse words in ["hello world", "goodbye moon"] => ["olleh dlrow", "eybdoog noom"]
-const reversedWordsOf = function (strings) { };
+const cumulativeSumOf = function (numbers) {
+  return numbers.map(function () {
+    let sum = 0;
+    return function (number) {
+      sum = sum + number;
+      return sum;
+    };
+  }());
+};
+
+const cumulativeSumsOf = function (arrays) {
+  return arrays.map(cumulativeSumOf);
+};
+
+// ---------------------ReversedWords Of Array Of Strings---------------------
+
+const reverseWords = function (string) {
+  const words = string.split(" ");
+
+  return words.map(reversedStringOf).join(" ");
+};
+
+const reversedWordsOf = function (strings) {
+  return strings.map(reverseWords);
+};
 
 // extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
 // Maintain the order of their first appearance in each string
@@ -614,6 +635,14 @@ function testWithoutVowelsOf() {
   printMessage(withoutVowelsOf(["ant", "bat", "dog"]), ["nt", "bt", "dg"], areEqual1D);
 }
 
+function testCumulativeSumsOf() {
+  printMessage(cumulativeSumsOf([[1, 2], [4, 5], [7]]), [[1, 3], [4, 9], [7]], areEqual2D);
+}
+
+function testReversedWordsOf() {
+  printMessage(reversedWordsOf(["hello world", "aa bb"]), ["olleh dlrow", "aa bb"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -631,6 +660,8 @@ function testAll() {
   testCountVowelsOf();
   testReversedArraysOf();
   testWithoutVowelsOf();
+  testCumulativeSumsOf();
+  testReversedWordsOf();
 }
 
 testAll();
