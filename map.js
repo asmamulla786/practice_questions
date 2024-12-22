@@ -384,8 +384,18 @@ const isAdult = function (objects) {
   return objects.map(isAdultPerson);
 };
 
-// create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
-const abbreviations = function (objects) { };
+// --------------------------------abbreviations--------------------------------
+
+const abbreviation = function (object) {
+  const cityAbbreviation = firstCharactersOf(object.city.split(" ")).join("");
+
+  return cityAbbreviation + ", " + object.country;
+
+};
+
+const abbreviations = function (objects) {
+  return objects.map(abbreviation);
+};
 
 // extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
 const mathScores = function (objects) { };
@@ -832,6 +842,10 @@ function testIsAdult() {
   printMessage(isAdult([{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }]), [false, true], areEqual1D);
 }
 
+function testAbbreviations() {
+  printMessage(abbreviations([{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }]), ["NY, USA", "LA, USA"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -866,6 +880,7 @@ function testAll() {
   testFullNames();
   testTotalPrices();
   testIsAdult();
+  testAbbreviations();
 }
 
 testAll();
