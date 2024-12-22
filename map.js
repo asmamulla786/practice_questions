@@ -28,8 +28,15 @@ const uppercaseOf = function (strings) {
   return strings.map(convertToUpperCase);
 };
 
-// first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
-const firstCharactersOf = function (strings) { };
+// ---------------------FirstCharacters Of Array Of Strings---------------------
+
+const firstCharacterOf = function (string) {
+  return string.slice(0, 1);
+};
+
+const firstCharactersOf = function (strings) {
+  return strings.map(firstCharacterOf);
+};
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
@@ -442,10 +449,16 @@ function testUppercaseOf() {
   printMessage(uppercaseOf([""]), [""], areEqual1D);
   printMessage(uppercaseOf(["hello", "good"]), ["HELLO", "GOOD"], areEqual1D);
 }
+
+function testFirstCharactersOf() {
+  printMessage(firstCharactersOf(["one", "two"]), ["o", "t"], areEqual1D);
+  printMessage(firstCharactersOf([""]), [""], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
   testUppercaseOf();
+  testFirstCharactersOf();
 }
 
 testAll();
