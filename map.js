@@ -364,9 +364,15 @@ const fullNames = function (objects) {
   return objects.map(fullName);
 };
 
-// calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] => [20, 20]
-// (price * quantity)
-const totalPrices = function (objects) { };
+// ----------------------------------fullNames----------------------------------
+
+const totalPrice = function (object) {
+  return object.price * object.quantity;
+};
+
+const totalPrices = function (objects) {
+  return objects.map(totalPrice);
+};
 
 // determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
 // (age >= 18)
@@ -812,6 +818,10 @@ function testFullNames() {
   printMessage(fullNames([{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }]), ["Alice Smith", "Bob Brown"], areEqual1D);
 }
 
+function testTotalPrices() {
+  printMessage(totalPrices([{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }]), [20, 20], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -844,6 +854,7 @@ function testAll() {
   testCalculateAreas();
   testExtractFlags();
   testFullNames();
+  testTotalPrices();
 }
 
 testAll();
