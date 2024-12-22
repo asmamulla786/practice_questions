@@ -40,7 +40,13 @@ const firstCharactersOf = function (strings) {
 
 // truth values of [0, 1, 2, 3] => [false, true, true, true]
 // Assume non-zero numbers are true, and zero is false
-const truthValuesOf = function (numbers) { };
+const truthValueOf = function (number) {
+  return number !== 0;
+};
+
+const truthValuesOf = function (numbers) {
+  return numbers.map(truthValueOf);
+};
 
 // reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
 const reversedStringsOf = function (strings) { };
@@ -454,11 +460,19 @@ function testFirstCharactersOf() {
   printMessage(firstCharactersOf(["one", "two"]), ["o", "t"], areEqual1D);
   printMessage(firstCharactersOf([""]), [""], areEqual1D);
 }
+
+function testTruthValuesOf() {
+  printMessage(truthValuesOf([]), [], areEqual1D);
+  printMessage(truthValuesOf([0]), [false], areEqual1D);
+  printMessage(truthValuesOf([1, -3, 4]), [true, true, true], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
   testUppercaseOf();
   testFirstCharactersOf();
+  testTruthValuesOf();
 }
 
 testAll();
