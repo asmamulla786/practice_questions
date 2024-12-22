@@ -334,8 +334,16 @@ const firstLettersOfNames = function (objects) {
   return objects.map(firstLetterOfName);
 };
 
+// -------------------------------calculateAreas-------------------------------
+
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
-const calculateAreas = function (rectangles) { };
+const area = function (rectangle) {
+  return rectangle.width * rectangle.height;
+}
+
+const calculateAreas = function (rectangles) {
+  return rectangles.map(area);
+};
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
 const extractFlags = function (objects) { };
@@ -778,6 +786,11 @@ function testExtractAges() {
 function testFirstLettersOfNames() {
   printMessage(firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]), ["A", "B"], areEqual1D);
 }
+
+function testCalculateAreas() {
+  printMessage(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]), [6, 20], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -807,6 +820,7 @@ function testAll() {
   testExtractNames();
   testExtractAges();
   testFirstLettersOfNames();
+  testCalculateAreas();
 }
 
 testAll();
