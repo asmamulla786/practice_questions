@@ -373,3 +373,45 @@ const summarizeBookChapters = function (books) { };
 // [{name: "Concert", attendees: [{firstName: "John", lastName: "Doe"}, {firstName: "Jane", lastName: "Smith"}]}, {name: "Conference", attendees: [{firstName: "Bob", lastName: "Brown"}]}]
 // => [{name: "Concert", attendees: ["John Doe", "Jane Smith"]}, {name: "Conference", attendees: ["Bob Brown"]}]
 const getEventAttendees = function (events) { };
+
+//--------------------------------TESSTING PART--------------------------------
+
+function areEqual1D(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  return array1.every(function (element, index) {
+    return element === array2[index]
+  });
+}
+
+function areEqual2D(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  return array1.every(function (element, index) {
+    return areEqual1D(element, array2[index]);
+  });
+}
+
+function getMark(areEqual) {
+  return areEqual ? '✅' : '❌';
+}
+
+function printMessage(actual, expected, areEqual) {
+  const mark = getMark(areEqual(actual, expected));
+  console.log("\n" + mark + " expected :: ", expected);
+  console.log("   actual   :: ", actual);
+}
+
+function testSquaresOf() {
+  printMessage(squaresOf([1, 2, 3]), [1, 4, 9], areEqual1D);
+}
+
+function testAll() {
+  testSquaresOf();
+}
+
+testAll();
