@@ -120,7 +120,6 @@ const splitWordsOf = function (strings) {
 
 // ----------------------JoinedArrays Of Array Of Strings----------------------
 
-// join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
 const joinedArray = function (array) {
   return array.join("");
 };
@@ -129,8 +128,15 @@ const joinedArraysOf = function (arrayOfArrays) {
   return arrayOfArrays.map(joinedArray);
 };
 
-// repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
-const repeatedStringsOf = function (strings) { };
+// ---------------------RepeatedStrings Of Array Of Strings---------------------
+
+const repeatString = function (string) {
+  return string.repeat(2);
+};
+
+const repeatedStringsOf = function (strings) {
+  return strings.map(repeatString);
+};
 
 // count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
 const countVowelsOf = function (strings) { };
@@ -558,6 +564,11 @@ function testJoinedArraysOf() {
   printMessage(joinedArraysOf([["a", "b"], ["he", "llo"]]), ["ab", "hello"], areEqual1D);
 }
 
+function testRepeatedStringsOf() {
+  printMessage(repeatedStringsOf([""]), [""], areEqual1D);
+  printMessage(repeatedStringsOf(["a", "bb"]), ["aa", "bbbb"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -571,6 +582,7 @@ function testAll() {
   testDomainNamesOf();
   testSplitWordsOf();
   testJoinedArraysOf();
+  testRepeatedStringsOf();
 }
 
 testAll();
