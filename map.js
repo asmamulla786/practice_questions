@@ -1,5 +1,12 @@
-// squares of [1, 2, 3] => [1, 4, 9]
-const squaresOf = function (numbers) { };
+// -------------------------Squares Of Array Of Numbers-------------------------
+
+const squareOf = function (number) {
+  return number * number;
+}
+
+const squaresOf = function (numbers) {
+  return numbers.map(squareOf);
+};
 
 // lengths of ["apple", "banana", "kiwi"] => [5, 6, 4]
 const lengthsOf = function (strings) { };
@@ -407,6 +414,8 @@ function printMessage(actual, expected, areEqual) {
 }
 
 function testSquaresOf() {
+  printMessage(squaresOf([1]), [1], areEqual1D);
+  printMessage(squaresOf([]), [], areEqual1D);
   printMessage(squaresOf([1, 2, 3]), [1, 4, 9], areEqual1D);
 }
 
