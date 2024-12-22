@@ -51,9 +51,7 @@ const truthValuesOf = function (numbers) {
 // ---------------------ReversedStrings Of Array Of Strings---------------------
 
 const reversedStringOf = function (string) {
-  const array = Array.from(string);
-
-  return array.reverse().join("");
+  return [...string].reverse().join("");
 };
 
 const reversedStringsOf = function (strings) {
@@ -67,9 +65,7 @@ const doubleCharacter = function (character) {
 };
 
 const doubleChararectersOf = function (string) {
-  const characters = Array.from(string);
-
-  return characters.map(doubleCharacter).join("");
+  return [...string].map(doubleCharacter).join("");
 };
 
 const doubleLettersOf = function (strings) {
@@ -172,8 +168,7 @@ const isNotVowel = function (character) {
 };
 
 const withoutVowels = function (string) {
-  const characters = Array.from(string);
-  return characters.filter(isNotVowel).join("");
+  return [...string].filter(isNotVowel).join("");
 };
 
 const withoutVowelsOf = function (strings) {
@@ -215,9 +210,7 @@ const isNotpresent = function (string, character) {
 }
 
 const uniqueCharacters = function (string) {
-  const characters = Array.from(string);
-
-  return characters.reduce(isNotpresent, "");
+  return [...string].reduce(isNotpresent, "");
 }
 
 const uniqueCharactersOf = function (strings) {
@@ -285,9 +278,7 @@ const flattenedArraysOf = function (arrays) {
 // ---------------------SortedLetters Of Array Of Strings---------------------
 
 const sortedLetters = function (string) {
-  const characters = Array.from(string);
-
-  return characters.sort().join("");
+  return [...string].sort().join("");
 }
 
 const sortedLettersOf = function (strings) {
@@ -408,7 +399,7 @@ const mathScores = function (objects) {
 };
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
-const extractCoordinates = function (objects) {};
+const extractCoordinates = function (objects) { };
 
 // extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
 const fullNameAndAge = function (objects) { };
