@@ -155,7 +155,7 @@ const countVowelsOf = function (strings) {
   return strings.map(vowelCount);
 };
 
-// -----------------------CountVowels Of Array Of Strings-----------------------
+// ----------------------ReversedArrays Of Array Of Arrays----------------------
 
 const reverseArray = function (array) {
   return array.reverse();
@@ -165,8 +165,20 @@ const reversedArraysOf = function (arrays) {
   return arrays.map(reverseArray);
 };
 
-// remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
-const withoutVowelsOf = function (strings) { };
+// ----------------------WithoutVowels Of Array Of Strings----------------------
+
+const isNotVowel = function (character) {
+  return "aeiouAEIOU".includes(character) ? "" : character;
+};
+
+const withoutVowels = function (string) {
+  const characters = Array.from(string);
+  return characters.map(isNotVowel).join("");
+};
+
+const withoutVowelsOf = function (strings) {
+  return strings.map(withoutVowels);
+};
 
 // cumulative sums of [[1, 2, 3], [4, 5, 6]] => [[1, 3, 6], [4, 9, 15]]
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
@@ -597,6 +609,11 @@ function testCountVowelsOf() {
 function testReversedArraysOf() {
   printMessage(reversedArraysOf([["a", "b"], ["x", "y"]]), [["b", "a"], ["y", "x"]], areEqual2D)
 }
+
+function testWithoutVowelsOf() {
+  printMessage(withoutVowelsOf(["ant", "bat", "dog"]), ["nt", "bt", "dg"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -613,6 +630,7 @@ function testAll() {
   testRepeatedStringsOf();
   testCountVowelsOf();
   testReversedArraysOf();
+  testWithoutVowelsOf();
 }
 
 testAll();
