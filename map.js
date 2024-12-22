@@ -108,7 +108,7 @@ const domainNamesOf = function (emails) {
   return emails.map(domainNameOf);
 };
 
-// ---------------------SplitWords Of Array Of Strings---------------------
+// -----------------------SplitWords Of Array Of Strings-----------------------
 
 const splitIntoWords = function (string) {
   return string.split(" ");
@@ -118,8 +118,16 @@ const splitWordsOf = function (strings) {
   return strings.map(splitIntoWords);
 };
 
+// ----------------------JoinedArrays Of Array Of Strings----------------------
+
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
-const joinedArraysOf = function (arrayOfArrays) { };
+const joinedArray = function (array) {
+  return array.join("");
+};
+
+const joinedArraysOf = function (arrayOfArrays) {
+  return arrayOfArrays.map(joinedArray);
+};
 
 // repeat strings in ["hi", "bye"] => ["hihi", "byebye"]
 const repeatedStringsOf = function (strings) { };
@@ -546,6 +554,10 @@ function testSplitWordsOf() {
   printMessage(splitWordsOf(["namaste", "good morning"]), [["namaste"], ["good", "morning"]], areEqual2D);
 }
 
+function testJoinedArraysOf() {
+  printMessage(joinedArraysOf([["a", "b"], ["he", "llo"]]), ["ab", "hello"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -558,6 +570,7 @@ function testAll() {
   testCharCodesOf();
   testDomainNamesOf();
   testSplitWordsOf();
+  testJoinedArraysOf();
 }
 
 testAll();
