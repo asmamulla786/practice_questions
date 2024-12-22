@@ -2,7 +2,7 @@
 
 const squareOf = function (number) {
   return number * number;
-}
+};
 
 const squaresOf = function (numbers) {
   return numbers.map(squareOf);
@@ -12,14 +12,21 @@ const squaresOf = function (numbers) {
 
 const lengthOf = function (string) {
   return string.length;
-}
+};
 
 const lengthsOf = function (strings) {
   return strings.map(lengthOf);
 };
 
-// uppercase of ["hello", "world"] => ["HELLO", "WORLD"]
-const uppercaseOf = function (strings) { };
+// ------------------------Uppercase Of Array Of Strings------------------------
+
+const convertToUpperCase = function (string) {
+  return string.toUpperCase();
+};
+
+const uppercaseOf = function (strings) {
+  return strings.map(convertToUpperCase);
+};
 
 // first characters of ["apple", "banana", "kiwi"] => ["a", "b", "k"]
 const firstCharactersOf = function (strings) { };
@@ -430,9 +437,15 @@ function testLengthsOf() {
   printMessage(lengthsOf(["o"]), [1], areEqual1D);
   printMessage(lengthsOf(["one", "two"]), [3, 3], areEqual1D);
 }
+
+function testUppercaseOf() {
+  printMessage(uppercaseOf([""]), [""], areEqual1D);
+  printMessage(uppercaseOf(["hello", "good"]), ["HELLO", "GOOD"], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
+  testUppercaseOf();
 }
 
 testAll();
