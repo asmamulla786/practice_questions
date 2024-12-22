@@ -68,11 +68,16 @@ const filterHighGrades = function (students) {
   return students.filter(function (student) { return student.grade > 80 });
 };
 
+//----------------------------filterInStockProducts----------------------------
+
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
-const filterInStockProducts = function (products) { };
+const filterInStockProducts = function (products) {
+  return products.filter(function (product) { return product.inStock });
+};
 
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
-const filterRecentOrders = function (orders) { };
+const filterRecentOrders = function (orders) {
+};
 
 // products with a price lower than the average [{name: "item1", price: 10}, {name: "item2", price: 20}, {name: "item3", price: 5}] => [{name: "item1", price: 10}, {name: "item3", price: 5}]
 const filterBelowAveragePrice = function (products) { };
@@ -451,6 +456,10 @@ function testFilterHeigherGrades() {
   printMessage(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 65 }]), []);
 }
 
+function testFilterInStockProducts() {
+  printMessage(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]), [{ product: "apple", inStock: true }]);
+}
+
 function testAll() {
   testFilterEvenNumbers();
   testFilterLongWords();
@@ -460,6 +469,7 @@ function testAll() {
   testFilterLongBooks();
   testFilterIncompleteProfiles();
   testFilterHeigherGrades();
+  testFilterInStockProducts();
 }
 
 testAll();
