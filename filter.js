@@ -18,8 +18,15 @@ const filterLongWords = function (words) {
   return words.filter(isLongWord);
 };
 
-// people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAdults = function (people) { };
+//---------------------------------filterAdults---------------------------------
+
+const isAdult = function (person) {
+  return person.age > 30;
+};
+
+const filterAdults = function (people) {
+  return people.filter(isAdult);
+};
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 const filterActiveUsers = function (users) { };
@@ -374,14 +381,9 @@ function areEqual2D(array1, array2) {
   });
 }
 
-function getMark(areEqual) {
-  return areEqual ? '✅' : '❌';
-}
-
 function printMessage(actual, expected, areEqual) {
-  const mark = getMark(areEqual(actual, expected));
-  console.log("\n" + mark + " expected :: ", expected);
-  console.log("   actual   :: ", actual);
+  console.log("\nexpected :: ", expected);
+  console.log("actual   :: ", actual);
 }
 
 function testFilterEvenNumbers() {
@@ -394,9 +396,15 @@ function testFilterLongWords() {
   printMessage(filterLongWords(["apple", "banana", "kiwi", "grape"]), ["banana"], areEqual1D);
 }
 
+function testFilterAdults() {
+  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]), [{ name: "Bob", age: 35 }], areEqual1D);
+  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 15 }]), [], areEqual1D);
+}
+
 function testAll() {
   testFilterEvenNumbers();
   testFilterLongWords();
+  testFilterAdults();
 }
 
 testAll();
