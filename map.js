@@ -240,8 +240,21 @@ const rangesOf = function (numbers) {
   return numbers.map(rangeOf);
 };
 
-// capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
-const capitalizedFirstLettersOf = function (strings) { };
+// -----------------CapitalizedFirstLetters Of Array Of Strings-----------------
+
+const capitalizeWord = function (word) {
+  return word.replace(word[0], word[0].toUpperCase());
+};
+
+const capitalizeFirstLetters = function (string) {
+  const words = string.split(" ");
+
+  return words.map(capitalizeWord).join(" ");
+};
+
+const capitalizedFirstLettersOf = function (strings) {
+  return strings.map(capitalizeFirstLetters);
+};
 
 // find word lengths in ["apple pie", "banana split"] => [[5, 3], [6, 5]]
 const wordLengthsOf = function (strings) { };
@@ -677,6 +690,9 @@ function testRangesOf() {
   printMessage(rangesOf([2, 4, 1]), [[0, 1], [0, 1, 2, 3], [0]], areEqual2D);
 }
 
+function testCapitalizedFirstLettersOf() {
+  printMessage(capitalizedFirstLettersOf(["hello world", "goodbye moon"]), ["Hello World", "Goodbye Moon"], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -698,6 +714,7 @@ function testAll() {
   testReversedWordsOf();
   testUniqueCharactersOf();
   testRangesOf();
+  testCapitalizedFirstLettersOf();
 }
 
 testAll();
