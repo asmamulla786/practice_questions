@@ -208,12 +208,37 @@ const reversedWordsOf = function (strings) {
   return strings.map(reverseWords);
 };
 
-// extract unique characters from ["apple", "banana", "grape"] => ["apl", "ban", "gra"]
-// Maintain the order of their first appearance in each string
-const uniqueCharactersOf = function (strings) { };
+// --------------------UniqueCharacters Of Array Of Strings--------------------
 
-// generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) { };
+const isNotpresent = function (string, character) {
+  return !string.includes(character) ? string + character : string;
+}
+
+const uniqueCharacters = function (string) {
+  const characters = Array.from(string);
+
+  return characters.reduce(isNotpresent, "");
+}
+
+const uniqueCharactersOf = function (strings) {
+  return strings.map(uniqueCharacters);
+};
+
+// -------------------------Ranges Of Array Of Strings-------------------------
+
+const rangeOf = function (size) {
+  const sequence = [];
+
+  for (let i = 0; i < size; i++) {
+    sequence.push(i);
+  }
+
+  return sequence;
+};
+
+const rangesOf = function (numbers) {
+  return numbers.map(rangeOf);
+};
 
 // capitalize first letters of ["hello world", "goodbye moon"] => ["Hello World", "Goodbye Moon"]
 const capitalizedFirstLettersOf = function (strings) { };
@@ -643,6 +668,15 @@ function testReversedWordsOf() {
   printMessage(reversedWordsOf(["hello world", "aa bb"]), ["olleh dlrow", "aa bb"], areEqual1D);
 }
 
+function testUniqueCharactersOf() {
+  printMessage(uniqueCharactersOf(["aa"]), ["a"], areEqual1D);
+  printMessage(uniqueCharactersOf(["apple", "grape"]), ["aple", "grape"], areEqual1D);
+}
+
+function testRangesOf() {
+  printMessage(rangesOf([2, 4, 1]), [[0, 1], [0, 1, 2, 3], [0]], areEqual2D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -662,6 +696,8 @@ function testAll() {
   testWithoutVowelsOf();
   testCumulativeSumsOf();
   testReversedWordsOf();
+  testUniqueCharactersOf();
+  testRangesOf();
 }
 
 testAll();
