@@ -138,7 +138,7 @@ const repeatedStringsOf = function (strings) {
   return strings.map(repeatString);
 };
 
-// ---------------------RepeatedStrings Of Array Of Strings---------------------
+// -----------------------CountVowels Of Array Of Strings-----------------------
 
 const isVowel = function (character) {
   return "aeiouAEIOU".includes(character);
@@ -155,8 +155,15 @@ const countVowelsOf = function (strings) {
   return strings.map(vowelCount);
 };
 
-// reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
-const reversedArraysOf = function (arrays) { };
+// -----------------------CountVowels Of Array Of Strings-----------------------
+
+const reverseArray = function (array) {
+  return array.reverse();
+}
+
+const reversedArraysOf = function (arrays) {
+  return arrays.map(reverseArray);
+};
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
 const withoutVowelsOf = function (strings) { };
@@ -586,6 +593,10 @@ function testRepeatedStringsOf() {
 function testCountVowelsOf() {
   printMessage(countVowelsOf(["abe", "dance", "xyz"]), [2, 2, 0], areEqual1D);
 }
+
+function testReversedArraysOf() {
+  printMessage(reversedArraysOf([["a", "b"], ["x", "y"]]), [["b", "a"], ["y", "x"]], areEqual2D)
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -601,6 +612,7 @@ function testAll() {
   testJoinedArraysOf();
   testRepeatedStringsOf();
   testCountVowelsOf();
+  testReversedArraysOf();
 }
 
 testAll();
