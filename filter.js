@@ -400,26 +400,6 @@ const findAnimalsByHabitat = function (animals, lookup) { };
 
 //--------------------------------TESSTING PART--------------------------------
 
-function areEqual1D(array1, array2) {
-  if (array1.length !== array2.length) {
-    return false;
-  }
-
-  return array1.every(function (element, index) {
-    return element === array2[index]
-  });
-}
-
-function areEqual2D(array1, array2) {
-  if (array1.length !== array2.length) {
-    return false;
-  }
-
-  return array1.every(function (element, index) {
-    return areEqual1D(element, array2[index]);
-  });
-}
-
 function printMessage(actual, expected, areEqual) {
   console.log("\nexpected :: ", expected);
   console.log("actual   :: ", actual);
