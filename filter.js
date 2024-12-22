@@ -1,5 +1,12 @@
-// even numbers [1, 2, 3, 4, 5] => [2, 4]
-const filterEvenNumbers = function (numbers) { };
+//------------------------------filterEvenNumbers------------------------------
+
+const isEven = function (number) {
+  return number % 2 === 0;
+};
+
+const filterEvenNumbers = function (numbers) {
+  return numbers.filter(isEven);
+};
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
 const filterLongWords = function (words) { };
@@ -337,3 +344,45 @@ const findInStockItems = function (items, lookup) { };
 // Input: ["Lion", "Elephant", "Shark"], { "Lion": { habitat: "Jungle" }, "Elephant": { habitat: "Jungle" }, "Shark": { habitat: "Ocean" } } , "Jungle"
 // Output: ["Lion", "Elephant"]
 const findAnimalsByHabitat = function (animals, lookup) { };
+
+//--------------------------------TESSTING PART--------------------------------
+
+function areEqual1D(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  return array1.every(function (element, index) {
+    return element === array2[index]
+  });
+}
+
+function areEqual2D(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  return array1.every(function (element, index) {
+    return areEqual1D(element, array2[index]);
+  });
+}
+
+function getMark(areEqual) {
+  return areEqual ? '✅' : '❌';
+}
+
+function printMessage(actual, expected, areEqual) {
+  const mark = getMark(areEqual(actual, expected));
+  console.log("\n" + mark + " expected :: ", expected);
+  console.log("   actual   :: ", actual);
+}
+
+function testFilterEvenNumbers() {
+  printMessage(filterEvenNumbers([1, 2, 3, 4, 5]), [2, 4], areEqual1D);
+  printMessage(filterEvenNumbers([1, 3, 5]), [], areEqual1D);
+}
+function testAll() {
+  testFilterEvenNumbers();
+}
+
+testAll();
