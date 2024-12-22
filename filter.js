@@ -28,8 +28,14 @@ const filterAdults = function (people) {
   return people.filter(isAdult);
 };
 
+//---------------------------------filterAdults---------------------------------
+
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
-const filterActiveUsers = function (users) { };
+const filterActiveUsers = function (users) {
+  return users.filter(function (user) {
+    return user.active;
+  })
+};
 
 // numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
 const filterNumbersGreaterThanTen = function (numbers) { };
@@ -387,24 +393,30 @@ function printMessage(actual, expected, areEqual) {
 }
 
 function testFilterEvenNumbers() {
-  printMessage(filterEvenNumbers([1, 2, 3, 4, 5]), [2, 4], areEqual1D);
-  printMessage(filterEvenNumbers([1, 3, 5]), [], areEqual1D);
+  printMessage(filterEvenNumbers([1, 2, 3, 4, 5]), [2, 4]);
+  printMessage(filterEvenNumbers([1, 3, 5]), []);
 }
 
 function testFilterLongWords() {
-  printMessage(filterLongWords([""]), [], areEqual1D);
-  printMessage(filterLongWords(["apple", "banana", "kiwi", "grape"]), ["banana"], areEqual1D);
+  printMessage(filterLongWords([""]), []);
+  printMessage(filterLongWords(["apple", "banana", "kiwi", "grape"]), ["banana"]);
 }
 
 function testFilterAdults() {
-  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]), [{ name: "Bob", age: 35 }], areEqual1D);
-  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 15 }]), [], areEqual1D);
+  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]), [{ name: "Bob", age: 35 }]);
+  printMessage(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 15 }]), []);
+}
+
+function testFilterActiveUsers() {
+  printMessage(filterActiveUsers([{ username: "alice", active: true }, { username: "bob", active: false }]), [{ username: "alice", active: true }]);
+  printMessage(filterActiveUsers([{ username: "alice", active: false }]), []);
 }
 
 function testAll() {
   testFilterEvenNumbers();
   testFilterLongWords();
   testFilterAdults();
+  testFilterActiveUsers();
 }
 
 testAll();
