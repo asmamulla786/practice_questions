@@ -364,7 +364,7 @@ const fullNames = function (objects) {
   return objects.map(fullName);
 };
 
-// ----------------------------------fullNames----------------------------------
+// ----------------------------------totalPrices----------------------------------
 
 const totalPrice = function (object) {
   return object.price * object.quantity;
@@ -374,9 +374,15 @@ const totalPrices = function (objects) {
   return objects.map(totalPrice);
 };
 
-// determine if a person is an adult from [{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }] => [false, true]
-// (age >= 18)
-const isAdult = function (objects) { };
+// -----------------------------------isAdult-----------------------------------
+
+const isAdultPerson = function (person) {
+  return person.age >= 18;
+};
+
+const isAdult = function (objects) {
+  return objects.map(isAdultPerson);
+};
 
 // create abbreviations from [{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }] => ["NY, USA", "LA, USA"]
 const abbreviations = function (objects) { };
@@ -822,6 +828,10 @@ function testTotalPrices() {
   printMessage(totalPrices([{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }]), [20, 20], areEqual1D);
 }
 
+function testIsAdult() {
+  printMessage(isAdult([{ name: "Alice", age: 17 }, { name: "Bob", age: 22 }]), [false, true], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -855,6 +865,7 @@ function testAll() {
   testExtractFlags();
   testFullNames();
   testTotalPrices();
+  testIsAdult();
 }
 
 testAll();
