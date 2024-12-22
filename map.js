@@ -98,7 +98,6 @@ const charCodesOf = function (strings) {
 
 // ---------------------DomainNames Of Array Of Characters---------------------
 
-// extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
 const domainNameOf = function (string) {
   const index = string.indexOf("@") + 1;
 
@@ -109,8 +108,15 @@ const domainNamesOf = function (emails) {
   return emails.map(domainNameOf);
 };
 
-// split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
-const splitWordsOf = function (strings) { };
+// ---------------------SplitWords Of Array Of Strings---------------------
+
+const splitIntoWords = function (string) {
+  return string.split(" ");
+};
+
+const splitWordsOf = function (strings) {
+  return strings.map(splitIntoWords);
+};
 
 // join arrays of [["a", "b"], ["c", "d"]] => ["ab", "cd"]
 const joinedArraysOf = function (arrayOfArrays) { };
@@ -535,6 +541,11 @@ function testCharCodesOf() {
 function testDomainNamesOf() {
   printMessage(domainNamesOf(["xyz@gmail.com", "you@yahoo.com"]), ["gmail.com", "yahoo.com"], areEqual1D);
 }
+
+function testSplitWordsOf() {
+  printMessage(splitWordsOf(["namaste", "good morning"]), [["namaste"], ["good", "morning"]], areEqual2D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -546,6 +557,7 @@ function testAll() {
   testNegatedBooleansOf();
   testCharCodesOf();
   testDomainNamesOf();
+  testSplitWordsOf();
 }
 
 testAll();
