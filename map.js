@@ -138,8 +138,22 @@ const repeatedStringsOf = function (strings) {
   return strings.map(repeatString);
 };
 
-// count vowels in ["apple", "banana", "grape"] => [2, 3, 2]
-const countVowelsOf = function (strings) { };
+// ---------------------RepeatedStrings Of Array Of Strings---------------------
+
+const isVowel = function (character) {
+  return "aeiouAEIOU".includes(character);
+};
+
+const vowelCount = function (string) {
+  const characters = Array.from(string);
+  const vowels = characters.filter(isVowel);
+
+  return vowels.length;
+};
+
+const countVowelsOf = function (strings) {
+  return strings.map(vowelCount);
+};
 
 // reverse arrays of [[1, 2, 3], [4, 5, 6]] => [[3, 2, 1], [6, 5, 4]]
 const reversedArraysOf = function (arrays) { };
@@ -569,6 +583,9 @@ function testRepeatedStringsOf() {
   printMessage(repeatedStringsOf(["a", "bb"]), ["aa", "bbbb"], areEqual1D);
 }
 
+function testCountVowelsOf() {
+  printMessage(countVowelsOf(["abe", "dance", "xyz"]), [2, 2, 0], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -583,6 +600,7 @@ function testAll() {
   testSplitWordsOf();
   testJoinedArraysOf();
   testRepeatedStringsOf();
+  testCountVowelsOf();
 }
 
 testAll();
