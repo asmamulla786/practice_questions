@@ -38,7 +38,7 @@ const firstCharactersOf = function (strings) {
   return strings.map(firstCharacterOf);
 };
 
-// ---------------------TruthValues Of Array Of Strings---------------------
+// -----------------------TruthValues Of Array Of Strings-----------------------
 
 const truthValueOf = function (number) {
   return number !== 0;
@@ -48,8 +48,17 @@ const truthValuesOf = function (numbers) {
   return numbers.map(truthValueOf);
 };
 
-// reverse strings of ["hello", "world"] => ["olleh", "dlrow"]
-const reversedStringsOf = function (strings) { };
+// ---------------------ReversedStrings Of Array Of Strings---------------------
+
+const reversedStringOf = function (string) {
+  const array = Array.from(string);
+
+  return array.reverse().join("");
+};
+
+const reversedStringsOf = function (strings) {
+  return strings.map(reversedStringOf);
+};
 
 // double letters of ["cat", "dog", "bat"] => ["ccaat", "ddoog", "bbaatt"]
 const doubleLettersOf = function (strings) { };
@@ -467,12 +476,18 @@ function testTruthValuesOf() {
   printMessage(truthValuesOf([1, -3, 4]), [true, true, true], areEqual1D);
 }
 
+function testReversedStringsOf() {
+  printMessage(reversedStringsOf(["honey", "curd"]), ["yenoh", "druc"], areEqual1D);
+  printMessage(reversedStringsOf([""]), [""], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
   testUppercaseOf();
   testFirstCharactersOf();
   testTruthValuesOf();
+  testReversedStringsOf();
 }
 
 testAll();
