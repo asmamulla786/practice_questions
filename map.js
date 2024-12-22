@@ -296,7 +296,6 @@ const sortedLettersOf = function (strings) {
 
 // ---------------------wrappedStrings Of Array Of Strings---------------------
 
-// wrap strings in brackets ["apple", "banana"] => ["[apple]", "[banana]"]
 const wrapString = function (string) {
   return "[" + string + "]";
 };
@@ -305,8 +304,15 @@ const wrappedStringsOf = function (strings) {
   return strings.map(wrapString);
 };
 
-// extract names from [{ name: "Alice" }, { name: "Bob" }] => ["Alice", "Bob"]
-const extractNames = function (objects) { };
+// ----------------------ExtractNames Of Array Of Strings----------------------
+
+const extractName = function (object) {
+  return object.name;
+}
+
+const extractNames = function (objects) {
+  return objects.map(extractName);
+};
 
 // extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAges = function (objects) { };
@@ -747,6 +753,10 @@ function testWrappedStringsOf() {
   printMessage(wrappedStringsOf(["apple", "banana"]), ["[apple]", "[banana]"], areEqual1D);
 }
 
+function testExtractNames() {
+  printMessage(extractNames([{ name: "Alice" }, { name: "Bob" }]), ["Alice", "Bob"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -773,6 +783,7 @@ function testAll() {
   testFlattenedArraysOf();
   testSortedLettersOf();
   testWrappedStringsOf();
+  testExtractNames();
 }
 
 testAll();
