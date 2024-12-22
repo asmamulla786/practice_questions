@@ -346,7 +346,13 @@ const calculateAreas = function (rectangles) {
 };
 
 // extract boolean flags from [{ active: true }, { active: false }] => [true, false]
-const extractFlags = function (objects) { };
+const extractFlag = function (object) {
+  return object.active;
+};
+
+const extractFlags = function (objects) {
+  return objects.map(extractFlag);
+};
 
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (objects) { };
@@ -791,6 +797,10 @@ function testCalculateAreas() {
   printMessage(calculateAreas([{ width: 2, height: 3 }, { width: 4, height: 5 }]), [6, 20], areEqual1D);
 }
 
+function testExtractFlags() {
+  printMessage(extractFlags([{ active: true }, { active: false }]), [true, false], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -821,6 +831,7 @@ function testAll() {
   testExtractAges();
   testFirstLettersOfNames();
   testCalculateAreas();
+  testExtractFlags();
 }
 
 testAll();
