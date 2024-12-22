@@ -76,8 +76,15 @@ const doubleLettersOf = function (strings) {
   return strings.map(doubleChararectersOf);
 };
 
-// boolean negation of [true, false, true] => [false, true, false]
-const negatedBooleansOf = function (booleans) { };
+// ----------------------DoubleLetters Of Array Of Strings----------------------
+
+const oppositeOf = function (boolean) {
+  return !boolean;
+};
+
+const negatedBooleansOf = function (booleans) {
+  return booleans.map(oppositeOf);
+};
 
 // character codes of ["a", "b", "c"] => [97, 98, 99]
 // Use the `charCodeAt` method on each string
@@ -499,6 +506,11 @@ function testDoubleLettersOf() {
   printMessage(doubleLettersOf(["cat", "dog"]), ["ccaatt", "ddoogg"], areEqual1D);
 }
 
+function testNegatedBooleansOf() {
+  printMessage(negatedBooleansOf([true]), [false], areEqual1D);
+  printMessage(negatedBooleansOf([false]), [true], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -507,6 +519,7 @@ function testAll() {
   testTruthValuesOf();
   testReversedStringsOf();
   testDoubleLettersOf();
+  testNegatedBooleansOf();
 }
 
 testAll();
