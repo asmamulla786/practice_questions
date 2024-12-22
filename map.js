@@ -272,8 +272,15 @@ const wordLengthsOf = function (strings) {
   return strings.map(wordLengths);
 };
 
-// flatten nested arrays of [[1, [2, 3]], [4, [5, 6]]] => [[1, 2, 3], [4, 5, 6]]
-const flattenedArraysOf = function (arrays) { };
+// ---------------------FlattenedArrays Of Array Of Strings---------------------
+
+const flatArray = function (array) {
+  return array.flat(Infinity);
+}
+
+const flattenedArraysOf = function (arrays) {
+  return arrays.map(flatArray);
+};
 
 // sort letters in ["cat", "bat", "rat"] alphabetically => ["act", "abt", "art"]
 const sortedLettersOf = function (strings) { };
@@ -710,6 +717,10 @@ function testCapitalizedFirstLettersOf() {
 function testWordLengthsOf() {
   printMessage(wordLengthsOf(["apple pie", "banana split"]), [[5, 3], [6, 5]], areEqual2D);
 }
+
+function testFlattenedArraysOf() {
+  printMessage(flattenedArraysOf([[1, [2, 3]], [1, 2]]), [[1, 2, 3], [1, 2]], areEqual2D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -733,6 +744,7 @@ function testAll() {
   testRangesOf();
   testCapitalizedFirstLettersOf();
   testWordLengthsOf();
+  testFlattenedArraysOf();
 }
 
 testAll();
