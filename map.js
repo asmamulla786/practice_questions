@@ -86,12 +86,28 @@ const negatedBooleansOf = function (booleans) {
   return booleans.map(oppositeOf);
 };
 
-// character codes of ["a", "b", "c"] => [97, 98, 99]
-// Use the `charCodeAt` method on each string
-const charCodesOf = function (strings) { };
+// ----------------------CharCodes Of Array Of Characters----------------------
+
+const charCodeOf = function (string) {
+  return string.charCodeAt();
+};
+
+const charCodesOf = function (strings) {
+  return strings.map(charCodeOf);
+};
+
+// ---------------------DomainNames Of Array Of Characters---------------------
 
 // extract domain names from ["user1@gmail.com", "admin@yahoo.com"] => ["gmail.com", "yahoo.com"]
-const domainNamesOf = function (emails) { };
+const domainNameOf = function (string) {
+  const index = string.indexOf("@") + 1;
+
+  return string.slice(index);
+}
+
+const domainNamesOf = function (emails) {
+  return emails.map(domainNameOf);
+};
 
 // split words in ["hello world", "goodbye moon"] => [["hello", "world"], ["goodbye", "moon"]]
 const splitWordsOf = function (strings) { };
@@ -511,6 +527,14 @@ function testNegatedBooleansOf() {
   printMessage(negatedBooleansOf([false]), [true], areEqual1D);
 }
 
+function testCharCodesOf() {
+  printMessage(charCodesOf(["a"]), [97], areEqual1D);
+  printMessage(charCodesOf(["a", "b", "c"]), [97, 98, 99], areEqual1D);
+}
+
+function testDomainNamesOf() {
+  printMessage(domainNamesOf(["xyz@gmail.com", "you@yahoo.com"]), ["gmail.com", "yahoo.com"], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -520,6 +544,8 @@ function testAll() {
   testReversedStringsOf();
   testDoubleLettersOf();
   testNegatedBooleansOf();
+  testCharCodesOf();
+  testDomainNamesOf();
 }
 
 testAll();
