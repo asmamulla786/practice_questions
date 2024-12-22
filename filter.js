@@ -28,17 +28,23 @@ const filterAdults = function (people) {
   return people.filter(isAdult);
 };
 
-//---------------------------------filterAdults---------------------------------
+//------------------------------filterActiveUsers------------------------------
 
-// active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 const filterActiveUsers = function (users) {
   return users.filter(function (user) {
     return user.active;
   })
 };
 
-// numbers greater than 10 [5, 12, 7, 18, 3] => [12, 18]
-const filterNumbersGreaterThanTen = function (numbers) { };
+//-------------------------filterNumbersGreaterThanTen-------------------------
+
+const isGreaterThan10 = function (number) {
+  return number > 10;
+};
+
+const filterNumbersGreaterThanTen = function (numbers) {
+  return numbers.filter(isGreaterThan10);
+};
 
 // books with more than 200 pages [{title: "Book 1", pages: 150}, {title: "Book 2", pages: 250}] => [{title: "Book 2", pages: 250}]
 const filterLongBooks = function (books) { };
@@ -412,11 +418,17 @@ function testFilterActiveUsers() {
   printMessage(filterActiveUsers([{ username: "alice", active: false }]), []);
 }
 
+function testFilterNumbersGreaterThanTen() {
+  printMessage(filterNumbersGreaterThanTen([1, 34, 23, 5]), [34, 23]);
+  printMessage(filterNumbersGreaterThanTen([1, 3, 2, 5]), []);
+}
+
 function testAll() {
   testFilterEvenNumbers();
   testFilterLongWords();
   testFilterAdults();
   testFilterActiveUsers();
+  testFilterNumbersGreaterThanTen();
 }
 
 testAll();
