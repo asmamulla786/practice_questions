@@ -397,8 +397,15 @@ const abbreviations = function (objects) {
   return objects.map(abbreviation);
 };
 
-// extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
-const mathScores = function (objects) { };
+// ---------------------------------mathScores---------------------------------
+
+const mathScore = function (scoreCard) {
+  return scoreCard.scores.math;
+};
+
+const mathScores = function (objects) {
+  return objects.map(mathScore);
+};
 
 // extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
 const extractCoordinates = function (objects) { };
@@ -846,6 +853,10 @@ function testAbbreviations() {
   printMessage(abbreviations([{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }]), ["NY, USA", "LA, USA"], areEqual1D);
 }
 
+function testMathScores() {
+  printMessage(mathScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]), [90, 80], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -881,6 +892,7 @@ function testAll() {
   testTotalPrices();
   testIsAdult();
   testAbbreviations();
+  testMathScores();
 }
 
 testAll();
