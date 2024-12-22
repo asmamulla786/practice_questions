@@ -38,8 +38,8 @@ const firstCharactersOf = function (strings) {
   return strings.map(firstCharacterOf);
 };
 
-// truth values of [0, 1, 2, 3] => [false, true, true, true]
-// Assume non-zero numbers are true, and zero is false
+// ---------------------TruthValues Of Array Of Strings---------------------
+
 const truthValueOf = function (number) {
   return number !== 0;
 };
