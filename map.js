@@ -336,7 +336,6 @@ const firstLettersOfNames = function (objects) {
 
 // -------------------------------calculateAreas-------------------------------
 
-// calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
 const area = function (rectangle) {
   return rectangle.width * rectangle.height;
 }
@@ -345,7 +344,8 @@ const calculateAreas = function (rectangles) {
   return rectangles.map(area);
 };
 
-// extract boolean flags from [{ active: true }, { active: false }] => [true, false]
+// --------------------------------extractFlags--------------------------------
+
 const extractFlag = function (object) {
   return object.active;
 };
@@ -354,8 +354,15 @@ const extractFlags = function (objects) {
   return objects.map(extractFlag);
 };
 
-// concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
-const fullNames = function (objects) { };
+// ----------------------------------fullNames----------------------------------
+
+const fullName = function (names) {
+  return names.firstName + " " + names.lastName;
+};
+
+const fullNames = function (objects) {
+  return objects.map(fullName);
+};
 
 // calculate total prices from [{ price: 10, quantity: 2 }, { price: 5, quantity: 4 }] => [20, 20]
 // (price * quantity)
@@ -801,6 +808,10 @@ function testExtractFlags() {
   printMessage(extractFlags([{ active: true }, { active: false }]), [true, false], areEqual1D);
 }
 
+function testFullNames() {
+  printMessage(fullNames([{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }]), ["Alice Smith", "Bob Brown"], areEqual1D);
+}
+
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -832,6 +843,7 @@ function testAll() {
   testFirstLettersOfNames();
   testCalculateAreas();
   testExtractFlags();
+  testFullNames();
 }
 
 testAll();
