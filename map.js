@@ -314,9 +314,8 @@ const extractNames = function (objects) {
   return objects.map(extractName);
 };
 
-// ----------------------ExtractAges Of Array Of Strings----------------------
+// -----------------------ExtractAges Of Array Of Strings-----------------------
 
-// extract ages from [{ age: 25 }, { age: 30 }] => [25, 30]
 const extractAge = function (object) {
   return object.age;
 }
@@ -325,8 +324,15 @@ const extractAges = function (objects) {
   return objects.map(extractAge);
 };
 
-// extract the first letters of names from [{ name: "Alice" }, { name: "Bob" }] => ["A", "B"]
-const firstLettersOfNames = function (objects) { };
+// -----------------------------firstLettersOfNames-----------------------------
+
+const firstLetterOfName = function (object) {
+  return firstCharacterOf(object.name);
+};
+
+const firstLettersOfNames = function (objects) {
+  return objects.map(firstLetterOfName);
+};
 
 // calculate areas from [{ width: 2, height: 3 }, { width: 4, height: 5 }] => [6, 20]
 const calculateAreas = function (rectangles) { };
@@ -769,6 +775,9 @@ function testExtractAges() {
   printMessage(extractAges([{ age: 25 }, { age: 30 }]), [25, 30], areEqual1D);
 }
 
+function testFirstLettersOfNames() {
+  printMessage(firstLettersOfNames([{ name: "Alice" }, { name: "Bob" }]), ["A", "B"], areEqual1D);
+}
 function testAll() {
   testSquaresOf();
   testLengthsOf();
@@ -797,6 +806,7 @@ function testAll() {
   testWrappedStringsOf();
   testExtractNames();
   testExtractAges();
+  testFirstLettersOfNames();
 }
 
 testAll();
