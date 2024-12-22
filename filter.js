@@ -56,11 +56,17 @@ const filterLongBooks = function (books) {
   return books.filter(isLongBook);
 };
 
-// users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
-const filterIncompleteProfiles = function (users) { };
+//---------------------------filterIncompleteProfiles---------------------------
 
-// students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
-const filterHighGrades = function (students) { };
+const filterIncompleteProfiles = function (users) {
+  return users.filter(function (user) { return !user.profileComplete });
+};
+
+//-------------------------------filterHighGrades-------------------------------
+
+const filterHighGrades = function (students) {
+  return students.filter(function (student) { return student.grade > 80 });
+};
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) { };
@@ -434,6 +440,17 @@ function testFilterLongBooks() {
   printMessage(filterLongBooks([{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 50 }]), []);
   printMessage(filterLongBooks([{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }]), [{ title: "Book 2", pages: 250 }]);
 }
+
+function testFilterIncompleteProfiles() {
+  printMessage(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]), [{ username: "bob", profileComplete: false }]);
+  printMessage(filterIncompleteProfiles([{ username: "alice", profileComplete: true }]), []);
+}
+
+function testFilterHeigherGrades() {
+  printMessage(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]), [{ name: "Jane", grade: 85 }]);
+  printMessage(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 65 }]), []);
+}
+
 function testAll() {
   testFilterEvenNumbers();
   testFilterLongWords();
@@ -441,6 +458,8 @@ function testAll() {
   testFilterActiveUsers();
   testFilterNumbersGreaterThanTen();
   testFilterLongBooks();
+  testFilterIncompleteProfiles();
+  testFilterHeigherGrades();
 }
 
 testAll();
