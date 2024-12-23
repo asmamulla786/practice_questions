@@ -145,7 +145,7 @@ const isVowel = function (character) {
 
 const addVowels = function (vowels, word) {
   vowels += [...word].filter(isVowel).join("");
-  
+
   return vowels;
 };
 
@@ -153,8 +153,15 @@ const countVowelsInWords = function (words) {
   return words.reduce(addVowels, "");
 };
 
-// makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
-const makeCamelCase = function (words) { }
+// --------------------------------makeCamelCase--------------------------------
+
+const camelCase = function (camelCaseWords, word) {
+  return camelCaseWords + word.replace(word[0], word[0].toUpperCase());
+};
+
+const makeCamelCase = function (words) {
+  return words.reduce(camelCase, "");
+};
 
 // reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
 const reverseString = function (words) { }
