@@ -124,13 +124,18 @@ const reverseWords = function (words) {
   return words.reduce(pushWord, []).join(" ");
 };
 
+// -----------------------------joinWordsWithSpace-----------------------------
+
 // joinWordsWithSpace(["apple", "banana", "cherry"]) => "apple banana cherry"
 const joinWordsWithSpace = function (words) {
-  
-}
 
-// concatenateNames(["John", "Jane", "Doe"]) => "JohnJaneDoe"
-const concatenateNames = function (names) { }
+};
+
+// ------------------------------concatenateNames------------------------------
+
+const concatenateNames = function (names) {
+  return names.reduce(add, "");
+};
 
 // countVowelsInWords(["hello", "world"]) => "eoo"
 const countVowelsInWords = function (words) { }
