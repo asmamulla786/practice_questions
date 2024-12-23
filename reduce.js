@@ -173,8 +173,18 @@ const reverseString = function (words) {
   return words.reduce(addReversedWord, "");
 };
 
-// duplicateNumbers([1, 2, 3]) => [1, 1, 2, 2, 3, 3]
-const duplicateNumbers = function (numbers) { }
+// ------------------------------duplicateNumbers------------------------------
+
+const duplicateNumber = function (array, number) {
+  array.push(number);
+  array.push(number);
+
+  return array;
+};
+
+const duplicateNumbers = function (numbers) {
+  return numbers.reduce(duplicateNumber, []);
+};
 
 // concatenateArrays([[1, 2], [3, 4], [5, 6]]) => [1, 2, 3, 4, 5, 6]
 const concatenateArrays = function (arrays) { }
