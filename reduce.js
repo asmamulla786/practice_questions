@@ -163,8 +163,15 @@ const makeCamelCase = function (words) {
   return words.reduce(camelCase, "");
 };
 
-// reverseString(["apple", "banana", "cherry"]) => "elppaananabyrrehc"
-const reverseString = function (words) { }
+// --------------------------------reverseString--------------------------------
+
+const addReversedWord = function (reversedWords, word) {
+  return reversedWords += [...word].reverse().join("");
+}
+
+const reverseString = function (words) {
+  return words.reduce(addReversedWord, "");
+};
 
 // duplicateNumbers([1, 2, 3]) => [1, 1, 2, 2, 3, 3]
 const duplicateNumbers = function (numbers) { }
