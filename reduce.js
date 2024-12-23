@@ -200,8 +200,19 @@ const flattenArray = function (arrays) {
   return arrays.reduce(addElements, []);
 };
 
-// uniqueNumbers([1, 2, 2, 3, 4, 4, 5]) => [1, 2, 3, 4, 5]
-const uniqueNumbers = function (numbers) {};
+// --------------------------------uniqueNumbers--------------------------------
+
+const addIfItIsNotPresent = function (array, number) {
+  if (!array.includes(number)) {
+    array.push(number);
+  }
+
+  return array;
+};
+
+const uniqueNumbers = function (numbers) {
+  return numbers.reduce(addIfItIsNotPresent, []);
+};
 
 // groupByLength(["apple", "banana", "cherry", "date"]) => { 5: ["apple", "cherry"], 6: ["banana"], 4: ["date"] }
 const groupByLength = function (strings) {};
