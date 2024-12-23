@@ -137,8 +137,21 @@ const concatenateNames = function (names) {
   return names.reduce(add, "");
 };
 
-// countVowelsInWords(["hello", "world"]) => "eoo"
-const countVowelsInWords = function (words) { }
+// -----------------------------countVowelsInWords-----------------------------
+
+const isVowel = function (character) {
+  return "aeiouAEIOU".includes(character);
+};
+
+const addVowels = function (vowels, word) {
+  vowels += [...word].filter(isVowel).join("");
+  
+  return vowels;
+};
+
+const countVowelsInWords = function (words) {
+  return words.reduce(addVowels, "");
+};
 
 // makeCamelCase(["hello", "world", "how", "are", "you"]) => "helloWorldHowAreYou"
 const makeCamelCase = function (words) { }
