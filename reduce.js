@@ -214,8 +214,20 @@ const uniqueNumbers = function (numbers) {
   return numbers.reduce(addIfItIsNotPresent, []);
 };
 
-// groupByLength(["apple", "banana", "cherry", "date"]) => { 5: ["apple", "cherry"], 6: ["banana"], 4: ["date"] }
-const groupByLength = function (strings) {};
+// --------------------------------groupByLength--------------------------------
+
+const addIntoObject = function (object, string) {
+  if (!object[string.length]) {
+    object[string.length] = [];
+  }
+  object[string.length].push(string);
+
+  return object;
+};
+
+const groupByLength = function (strings) {
+  return strings.reduce(addIntoObject, {});
+};
 
 // countOccurrences(["apple", "banana", "cherry", "banana"]) => { apple: 1, banana: 2, cherry: 1 }
 const countOccurrences = function (strings) {};
