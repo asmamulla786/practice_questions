@@ -186,8 +186,17 @@ const duplicateNumbers = function (numbers) {
   return numbers.reduce(duplicateNumber, []);
 };
 
-// concatenateArrays([[1, 2], [3, 4], [5, 6]]) => [1, 2, 3, 4, 5, 6]
-const concatenateArrays = function (arrays) { }
+// ------------------------------concatenateArrays------------------------------
+
+const addElements = function (array, elements) {
+  array.push(elements);
+
+  return array.flat();
+};
+
+const concatenateArrays = function (arrays) {
+  return arrays.reduce(addElements, []);
+};
 
 // flattenArray([[1, 2], [3, 4], [5, 6]]) => [1, 2, 3, 4, 5, 6]
 const flattenArray = function (arrays) { }
