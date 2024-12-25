@@ -261,11 +261,24 @@ const zip = function (keys, values) {
   }, {});
 };
 
-// makeObject(["city", "country"], ["Paris", "France"]) => { "city": "Paris", "country": "France" }
-const makeObject = function (keys, values) {};
+//27---------------------------------makeObject---------------------------------
+
+const makeObject = function (keys, values) {
+  return zip(keys, values);
+};
+
+//28--------------------------------invertObject--------------------------------
 
 // invertObject({ "a": 1, "b": 2, "c": 3 }) => { 1: "a", 2: "b", 3: "c" }
-const invertObject = function (obj) {};
+
+const invertKeyValue = function (invertedObject, object) {
+  invertedObject[object[1]] = object[0];
+  return invertedObject;
+};
+
+const invertObject = function (obj) {
+  return Object.entries(obj).reduce(invertKeyValue, {});
+};
 
 // mergeArrays([["a", 1], ["b", 2]], [["c", 3], ["d", 4]]) => { "a": 1, "b": 2, "c": 3, "d": 4 }
 const mergeArrays = function (arr1, arr2) {};
