@@ -456,6 +456,8 @@ const groupByFirstLetter = function (words) {
   return words.reduce(pointToFirstLetter, {});
 };
 
+//46-----------------------------findFirstNonRepeated-----------------------------
+
 // findFirstNonRepeated([1,2,3,4,2,1,5]) => 3
 const findFirstNonRepeated = function (numbers) {};
 
@@ -483,23 +485,17 @@ const groupByDate = function (records) {};
 // findMinMax([1, 2, 3, 4, 5]) => { min: 1, max: 5 }
 const findMinMax = function (numbers) {};
 
-// sumByCategory([{ category: 'A', value: 10 }, { category: 'B', value: 20 }, { category: 'A', value: 30 }]) => { A: 40, B: 20 }
-const sumByCategory = function (items) {};
+//55-------------------------------sumByCategory-------------------------------
 
-//--------------------------------TESSTING PART--------------------------------
+const categorySums = function (object, { category, value }) {
+  if (!(category in object)) {
+    object[category] = 0;
+  }
 
-function printMessage(actual, expected) {
-  console.log("\nexpected :: ", expected);
-  console.log("actual   :: ", actual);
-}
+  object[category] += value;
+  return object;
+};
 
-function testSumOf() {
-  printMessage(sumOf([1, 2, 3, 4, 5]), 15);
-  printMessage(sumOf([]), 0);
-}
-
-function testAll() {
-  testSumOf();
-}
-
-//testAll();
+const sumByCategory = function (items) {
+  return items.reduce(categorySums, {});
+};
