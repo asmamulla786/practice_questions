@@ -391,11 +391,26 @@ const cumulativeSum = function (numbers) {
   return sums;
 };
 
+//41----------------------------equalChunksOfAtLeast----------------------------
+
 // equalChunksOfAtLeast([1, 1, 1, 2, 2, 5, 1, 1]) => [[1,1,1], [2,2], [1,1]]
 const equalChunksOfAtLeast = function (numbers) {};
 
-// groupByType([1, 'a', 2, 'b', 3, 'c', 4]) => { number: [1, 2, 3, 4], string: ['a', 'b', 'c'] }
-const groupByType = function (array) {};
+//42--------------------------------groupByType--------------------------------
+
+const addToGroupByType = function (object, element) {
+  if (!(typeof element in object)) {
+    object[typeof element] = [];
+  }
+
+  object[typeof element].push(element);
+
+  return object;
+};
+
+const groupByType = function (array) {
+  return array.reduce(addToGroupByType, {});
+};
 
 // runningAverages([1, 2, 3, 4]) => [1, 1.5, 2, 2.5]
 const runningAverages = function (numbers) {};
