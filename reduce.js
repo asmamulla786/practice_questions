@@ -356,8 +356,12 @@ const deepFlatten = function (arr) {
   return arr.reduce(addElements, []);
 };
 
+//39----------------------------------findMax----------------------------------
+
 // findMax([1, 2, 3, 4, 5]) => 5
-const findMax = function (numbers) {};
+const findMax = function (numbers) {
+  return maxOf(numbers);
+};
 
 // cumulativeSum([1,2,3,4]) => [1, 3, 6, 10]
 const cumulativeSum = function (numbers) {};
