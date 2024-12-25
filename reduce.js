@@ -419,10 +419,12 @@ const runningAverages = function (numbers) {
   return numbers.reduce(runningAverages);
 };
 
+//44-----------------------------flattenObject-----------------------------
+
 // flattenObject({a: {b: {c: 1}}, d: {e: 2}}) => { 'a.b.c': 1, 'd.e': 2 }
 const flattenObject = function (obj) {};
 
-// splitIntoSubarrays([1,2,3,4,5,6,7], 3) => [[1,2,3], [4,5,6], [7]]
+//45-----------------------------splitIntoSubarrays-----------------------------
 
 const splitIntoSubarrays = function (arr, size) {
   return arr.reduce(
@@ -439,8 +441,20 @@ const splitIntoSubarrays = function (arr, size) {
   );
 };
 
-// groupByFirstLetter(["apple", "banana", "cherry", "date"]) => { a: ["apple"], b: ["banana"], c: ["cherry"], d: ["date"] }
-const groupByFirstLetter = function (words) {};
+//46-----------------------------groupByFirstLetter-----------------------------
+
+const pointToFirstLetter = function (object, word) {
+  if (!(word[0] in object)) {
+    object[word[0]] = [];
+  }
+
+  object[word[0]].push(word);
+  return object;
+};
+
+const groupByFirstLetter = function (words) {
+  return words.reduce(pointToFirstLetter, {});
+};
 
 // findFirstNonRepeated([1,2,3,4,2,1,5]) => 3
 const findFirstNonRepeated = function (numbers) {};
@@ -488,4 +502,4 @@ function testAll() {
   testSumOf();
 }
 
-testAll();
+//testAll();
