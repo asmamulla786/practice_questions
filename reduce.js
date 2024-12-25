@@ -325,11 +325,16 @@ const longestString = function (strings) {
   return longestWord(strings);
 };
 
+//34-------------------------------mergeIntervals-------------------------------
+
 // mergeIntervals([[1,3], [2,4], [5,7]]) => [[1, 4], [5, 7]]
 const mergeIntervals = function (intervals) {};
 
-// sumAndCount([1, 2, 3, 4]) => { sum: 10, count: 4 }
-const sumAndCount = function (numbers) {};
+//35--------------------------------sumAndCount--------------------------------
+
+const sumAndCount = function (numbers) {
+  return { sum: sumOf(numbers), count: numbers.length };
+};
 
 // deepFlatten([[1,2], [3,4, [5,6]], 7]) => [1,2,3,4,5,6,7]
 const deepFlatten = function (arr) {};
