@@ -1,4 +1,4 @@
-// ------------------------------------sumOf------------------------------------
+//01-----------------------------------sumOf------------------------------------
 
 const add = function (number1, number2) {
   return number1 + number2;
@@ -8,7 +8,7 @@ const sumOf = function (numbers) {
   return numbers.reduce(add, 0);
 };
 
-// ----------------------------------productOf----------------------------------
+//02---------------------------------productOf----------------------------------
 
 const product = function (multiplier, multiplicand) {
   return multiplicand * multiplier;
@@ -18,7 +18,7 @@ const productOf = function (numbers) {
   return numbers.reduce(productOf, 1);
 };
 
-// ----------------------------------averageOf----------------------------------
+//03---------------------------------averageOf----------------------------------
 
 const averageOf = function (numbers) {
   const sum = sumOf(numbers);
@@ -32,7 +32,7 @@ const minOf = function (numbers) {};
 // maxOf([3, 1, 4, 1, 5, 9, 2]) => 9
 const maxOf = function (numbers) {};
 
-// -----------------------------sumPositiveNumbers-----------------------------
+//04----------------------------sumPositiveNumbers-----------------------------
 
 const isPositive = function (number) {
   return number > 0;
@@ -42,7 +42,7 @@ const sumPositiveNumbers = function (numbers) {
   return numbers.filter(isPositive).reduce(add, 0);
 };
 
-// --------------------------------sumOfSquares--------------------------------
+//05-------------------------------sumOfSquares--------------------------------
 
 const square = function (number) {
   return number * number;
@@ -52,7 +52,7 @@ const sumOfSquares = function (numbers) {
   return numbers.map(square).reduce(add, 0);
 };
 
-// -------------------------------sumOfOddNumbers-------------------------------
+//06------------------------------sumOfOddNumbers-------------------------------
 
 const isOdd = function (number) {
   return number % 2 === 1;
@@ -62,7 +62,7 @@ const sumOfOddNumbers = function (numbers) {
   return numbers.filter(isOdd).reduce(add, 0);
 };
 
-// ----------------------------countNegativeNumbers----------------------------
+//07---------------------------countNegativeNumbers----------------------------
 
 const isNegative = function (count, number) {
   return isPositive(number) ? count : count + 1;
@@ -72,7 +72,7 @@ const countNegativeNumbers = function (numbers) {
   return numbers.reduce(isNegative, 0);
 };
 
-// ----------------------------findSumOfEvenSquares----------------------------
+//08---------------------------findSumOfEvenSquares----------------------------
 
 const isEven = function (number) {
   return !isOdd(number);
@@ -82,13 +82,13 @@ const findSumOfEvenSquares = function (numbers) {
   return numbers.map(square).filter(isEven).reduce(add, 0);
 };
 
-// ------------------------------concatenateWords------------------------------
+//09-----------------------------concatenateWords------------------------------
 
 const concatenateWords = function (words) {
   return words.reduce(add, "");
 };
 
-// ---------------------------------longestWord---------------------------------
+//10--------------------------------longestWord---------------------------------
 
 const longWord = function (word1, word2) {
   return word1.length >= word2.length ? word1 : word2;
@@ -98,7 +98,7 @@ const longestWord = function (words) {
   return words.reduce(longWord, "");
 };
 
-// --------------------------------shortestWord--------------------------------
+//11-------------------------------shortestWord--------------------------------
 
 const shortWord = function (word1, word2) {
   return word1.length <= word2.length ? word1 : word2;
@@ -108,10 +108,10 @@ const shortestWord = function (words) {
   return words.reduce(shortWord);
 };
 
-// joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
+//12 joinWithComma(["apple", "banana", "cherry"]) => "apple,banana,cherry"
 const joinWithComma = function (words) {};
 
-// --------------------------------ReverseWords--------------------------------
+//13-------------------------------ReverseWords--------------------------------
 
 const pushWord = function (array, word) {
   array.unshift(word);
@@ -122,18 +122,18 @@ const reverseWords = function (words) {
   return words.reduce(pushWord, []).join(" ");
 };
 
-// -----------------------------joinWordsWithSpace-----------------------------
+//14----------------------------joinWordsWithSpace-----------------------------
 
 // joinWordsWithSpace(["apple", "banana", "cherry"]) => "apple banana cherry"
 const joinWordsWithSpace = function (words) {};
 
-// ------------------------------concatenateNames------------------------------
+//15-----------------------------concatenateNames------------------------------
 
 const concatenateNames = function (names) {
   return names.reduce(add, "");
 };
 
-// -----------------------------countVowelsInWords-----------------------------
+//16----------------------------countVowelsInWords-----------------------------
 
 const isVowel = function (character) {
   return "aeiouAEIOU".includes(character);
@@ -149,7 +149,7 @@ const countVowelsInWords = function (words) {
   return words.reduce(addVowels, "");
 };
 
-// --------------------------------makeCamelCase--------------------------------
+//17-------------------------------makeCamelCase--------------------------------
 
 const camelCase = function (camelCaseWords, word) {
   return camelCaseWords + word.replace(word[0], word[0].toUpperCase());
@@ -159,7 +159,7 @@ const makeCamelCase = function (words) {
   return words.reduce(camelCase, "");
 };
 
-// --------------------------------reverseString--------------------------------
+//18-------------------------------reverseString--------------------------------
 
 const addReversedWord = function (reversedWords, word) {
   return (reversedWords += [...word].reverse().join(""));
@@ -169,7 +169,7 @@ const reverseString = function (words) {
   return words.reduce(addReversedWord, "");
 };
 
-// ------------------------------duplicateNumbers------------------------------
+//19-----------------------------duplicateNumbers------------------------------
 
 const duplicateNumber = function (array, number) {
   array.push(number);
@@ -182,7 +182,7 @@ const duplicateNumbers = function (numbers) {
   return numbers.reduce(duplicateNumber, []);
 };
 
-// ------------------------------concatenateArrays------------------------------
+//20-----------------------------concatenateArrays------------------------------
 
 const addElements = function (array, elements) {
   array.push(elements);
@@ -194,13 +194,13 @@ const concatenateArrays = function (arrays) {
   return arrays.reduce(addElements, []);
 };
 
-// --------------------------------flattenArray--------------------------------
+//21-------------------------------flattenArray--------------------------------
 
 const flattenArray = function (arrays) {
   return arrays.reduce(addElements, []);
 };
 
-// --------------------------------uniqueNumbers--------------------------------
+//22-------------------------------uniqueNumbers--------------------------------
 
 const addIfItIsNotPresent = function (array, number) {
   if (!array.includes(number)) {
@@ -214,7 +214,7 @@ const uniqueNumbers = function (numbers) {
   return numbers.reduce(addIfItIsNotPresent, []);
 };
 
-// --------------------------------groupByLength--------------------------------
+//23-------------------------------groupByLength--------------------------------
 
 const addIntoObject = function (object, string) {
   if (!object[string.length]) {
@@ -229,7 +229,7 @@ const groupByLength = function (strings) {
   return strings.reduce(addIntoObject, {});
 };
 
-// ------------------------------countOccurrences------------------------------
+//24-----------------------------countOccurrences------------------------------
 
 const countOccurence = function (object, string) {
   if (!(string in object)) {
@@ -244,11 +244,22 @@ const countOccurrences = function (strings) {
   return strings.reduce(countOccurence, {});
 };
 
-// mergeObjects([{ a: 1, b: 2 }, { b: 3, c: 4 }, { a: 5 }]) => { a: 6, b: 5, c: 4 }
-const mergeObjects = function (objects) {};
+//25--------------------------------mergeObjects--------------------------------
 
-// zip(["a", "b", "c"], [1, 2, 3]) => { "a": 1, "b": 2, "c": 3 }
-const zip = function (keys, values) {};
+// mergeObjects([{ a: 1, b: 2 }, { b: 3, c: 4 }, { a: 5 }]) => { a: 6, b: 5, c: 4 }
+const mergeObject = function (mergedObject, object) {};
+const mergeObjects = function (objects) {
+  objects.reduce(mergeObject, {});
+};
+
+//26------------------------------------zip------------------------------------
+
+const zip = function (keys, values) {
+  return keys.reduce(function (object, key, index) {
+    object[key] = values[index];
+    return object;
+  }, {});
+};
 
 // makeObject(["city", "country"], ["Paris", "France"]) => { "city": "Paris", "country": "France" }
 const makeObject = function (keys, values) {};
