@@ -229,8 +229,20 @@ const groupByLength = function (strings) {
   return strings.reduce(addIntoObject, {});
 };
 
-// countOccurrences(["apple", "banana", "cherry", "banana"]) => { apple: 1, banana: 2, cherry: 1 }
-const countOccurrences = function (strings) {};
+// ------------------------------countOccurrences------------------------------
+
+const countOccurence = function (object, string) {
+  if (!(string in object)) {
+    object[string] = 0;
+  }
+
+  object[string] = object[string] + 1;
+  return object;
+};
+
+const countOccurrences = function (strings) {
+  return strings.reduce(countOccurence, {});
+};
 
 // mergeObjects([{ a: 1, b: 2 }, { b: 3, c: 4 }, { a: 5 }]) => { a: 6, b: 5, c: 4 }
 const mergeObjects = function (objects) {};
