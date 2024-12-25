@@ -280,8 +280,8 @@ const invertObject = function (obj) {
 
 //29--------------------------------mergeArrays--------------------------------
 
-const addToObject = function (object, keyValueArray) {
-  object[keyValueArray[0]] = keyValueArray[1];
+const addToObject = function (object, pair) {
+  object[pair[0]] = pair[1];
   return object;
 };
 
@@ -313,8 +313,11 @@ const ascendingGroups = function (numbers) {
   return ascendingGroup;
 };
 
-// flattenToObject([['a', 1], ['b', 2], ['c', 3]]) => { a: 1, b: 2, c: 3 }
-const flattenToObject = function (pairs) {};
+//32------------------------------flattenToObject------------------------------
+
+const flattenToObject = function (pairs) {
+  return pairs.reduce(addToObject, {});
+};
 
 // longestString(["apple", "banana", "cherry", "dates"]) => "banana"
 const longestString = function (strings) {};
