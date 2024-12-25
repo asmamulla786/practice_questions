@@ -482,8 +482,11 @@ const cartesianProduct = function (arr1, arr2) {};
 // groupByDate([{ date: '2024-01-01', value: 10 }, { date: '2024-01-01', value: 20 }, { date: '2024-01-02', value: 30 }]) => { '2024-01-01': [10, 20], '2024-01-02': [30] }
 const groupByDate = function (records) {};
 
-// findMinMax([1, 2, 3, 4, 5]) => { min: 1, max: 5 }
-const findMinMax = function (numbers) {};
+//56---------------------------------findMinMax---------------------------------
+
+const findMinMax = function (numbers) {
+  return { min: minOf(numbers), max: maxOf(numbers) };
+};
 
 //55-------------------------------sumByCategory-------------------------------
 
