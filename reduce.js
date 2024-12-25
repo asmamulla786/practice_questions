@@ -290,11 +290,28 @@ const mergeArrays = function (arr1, arr2) {
   return arr2.reduce(addToObject, mergedArray);
 };
 
+//30------------------------------groupByProperty------------------------------
+
 // groupByProperty([{name: "John", age: 25}, {name: "Jane", age: 30}]) => { 25: [{name: "John", age: 25}], 30: [{name: "Jane", age: 30}] }
 const groupByProperty = function (objects) {};
 
-// ascendingGroups([1,2,3,4,3,4,5,10,6,7,8,9]) => [[1,2,3,4],[3,4,5],[10],[6,7,8,9]]
-const ascendingGroups = function (numbers) {};
+//31------------------------------ascendingGroups------------------------------
+
+const addToGroup = function (group, number) {
+  const lastNumber = group.at(-1).at(-1);
+  if (lastNumber + 1 !== number) {
+    group.push([]);
+  }
+
+  group.at(-1).push(number);
+  return group;
+};
+
+const ascendingGroups = function (numbers) {
+  const ascendingGroup = numbers.reduce(addToGroup, [[Infinity]]);
+  ascendingGroup.shift();
+  return ascendingGroup;
+};
 
 // flattenToObject([['a', 1], ['b', 2], ['c', 3]]) => { a: 1, b: 2, c: 3 }
 const flattenToObject = function (pairs) {};
