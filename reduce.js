@@ -412,14 +412,32 @@ const groupByType = function (array) {
   return array.reduce(addToGroupByType, {});
 };
 
+//43------------------------------runningAverages------------------------------
+
 // runningAverages([1, 2, 3, 4]) => [1, 1.5, 2, 2.5]
-const runningAverages = function (numbers) {};
+const runningAverages = function (numbers) {
+  return numbers.reduce(runningAverages);
+};
 
 // flattenObject({a: {b: {c: 1}}, d: {e: 2}}) => { 'a.b.c': 1, 'd.e': 2 }
 const flattenObject = function (obj) {};
 
 // splitIntoSubarrays([1,2,3,4,5,6,7], 3) => [[1,2,3], [4,5,6], [7]]
-const splitIntoSubarrays = function (arr, size) {};
+
+const splitIntoSubarrays = function (arr, size) {
+  return arr.reduce(
+    function (chunksArray, element) {
+      if (chunksArray.at(-1).length === size) {
+        chunksArray.push([]);
+      }
+
+      chunksArray.at(-1).push(element);
+
+      return chunksArray;
+    },
+    [[]]
+  );
+};
 
 // groupByFirstLetter(["apple", "banana", "cherry", "date"]) => { a: ["apple"], b: ["banana"], c: ["cherry"], d: ["date"] }
 const groupByFirstLetter = function (words) {};
