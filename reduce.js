@@ -358,13 +358,38 @@ const deepFlatten = function (arr) {
 
 //39----------------------------------findMax----------------------------------
 
-// findMax([1, 2, 3, 4, 5]) => 5
 const findMax = function (numbers) {
   return maxOf(numbers);
 };
 
+//40-------------------------------cumulativeSum-------------------------------
+
 // cumulativeSum([1,2,3,4]) => [1, 3, 6, 10]
-const cumulativeSum = function (numbers) {};
+// const cumulativeSum = function (numbers) {
+//   return numbers.reduce(
+//     (function () {
+//       let sum = 0;
+//       return function (arrayOfSums, number) {
+//         sum = sum + number;
+//         arrayOfSums.push(sum);
+//         return arrayOfSums;
+//       };
+//     })(),
+//     []
+//   );
+// };
+
+const pushSum = function (sums, number) {
+  const sum = sums.at(-1) + number;
+  sums.push(sum);
+  return sums;
+};
+
+const cumulativeSum = function (numbers) {
+  const sums = numbers.reduce(pushSum, [0]);
+  sums.shift();
+  return sums;
+};
 
 // equalChunksOfAtLeast([1, 1, 1, 2, 2, 5, 1, 1]) => [[1,1,1], [2,2], [1,1]]
 const equalChunksOfAtLeast = function (numbers) {};
