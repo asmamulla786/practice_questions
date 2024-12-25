@@ -319,8 +319,11 @@ const flattenToObject = function (pairs) {
   return pairs.reduce(addToObject, {});
 };
 
-// longestString(["apple", "banana", "cherry", "dates"]) => "banana"
-const longestString = function (strings) {};
+//33-------------------------------longestString-------------------------------
+
+const longestString = function (strings) {
+  return longestWord(strings);
+};
 
 // mergeIntervals([[1,3], [2,4], [5,7]]) => [[1, 4], [5, 7]]
 const mergeIntervals = function (intervals) {};
