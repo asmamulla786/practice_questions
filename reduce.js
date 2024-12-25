@@ -269,8 +269,6 @@ const makeObject = function (keys, values) {
 
 //28--------------------------------invertObject--------------------------------
 
-// invertObject({ "a": 1, "b": 2, "c": 3 }) => { 1: "a", 2: "b", 3: "c" }
-
 const invertKeyValue = function (invertedObject, object) {
   invertedObject[object[1]] = object[0];
   return invertedObject;
@@ -280,8 +278,17 @@ const invertObject = function (obj) {
   return Object.entries(obj).reduce(invertKeyValue, {});
 };
 
-// mergeArrays([["a", 1], ["b", 2]], [["c", 3], ["d", 4]]) => { "a": 1, "b": 2, "c": 3, "d": 4 }
-const mergeArrays = function (arr1, arr2) {};
+//29--------------------------------mergeArrays--------------------------------
+
+const addToObject = function (object, keyValueArray) {
+  object[keyValueArray[0]] = keyValueArray[1];
+  return object;
+};
+
+const mergeArrays = function (arr1, arr2) {
+  const mergedArray = arr1.reduce(addToObject, {});
+  return arr2.reduce(addToObject, mergedArray);
+};
 
 // groupByProperty([{name: "John", age: 25}, {name: "Jane", age: 30}]) => { 25: [{name: "John", age: 25}], 30: [{name: "Jane", age: 30}] }
 const groupByProperty = function (objects) {};
