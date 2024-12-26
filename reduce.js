@@ -296,6 +296,7 @@ const invertObject = function (obj) {
 
 const addToObject = function (object, pair) {
   object[pair[0]] = pair[1];
+
   return object;
 };
 
@@ -461,9 +462,17 @@ const groupByFirstLetter = function (words) {
 // findFirstNonRepeated([1,2,3,4,2,1,5]) => 3
 const findFirstNonRepeated = function (numbers) {};
 
-// countVowels(["apple", "banana", "grape"]) => { a: 6, e: 3, i: 0, o: 0, u: 0 }
-const countVowels = function (words) {};
+//47--------------------------------countVowels--------------------------------
 
+const vowelCount = function (object, word) {
+  return [...word].filter(isVowel).reduce(countOccurence, object);
+};
+
+const countVowels = function (words) {
+  return words.reduce(vowelCount, { a: 0, e: 0, i: 0, o: 0, u: 0 });
+};
+
+console.log(countVowels(["apple", "banana", "grape"]));
 // mergeConsecutiveDuplicates([1,1,1,2,3,3,4]) => [1,2,3,4]
 const mergeConsecutiveDuplicates = function (array) {};
 
